@@ -20,7 +20,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#top">
-  Rintu Susan Reji <span class="text-primary">| Data Analyst</span>
+  Rintu Susan Reji <span class="text-light opacity-75">| Data Analyst</span>
 </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -492,14 +492,33 @@ html {
   font-weight: 500;
 }
   .nav-link {
-    color: #ffffff !important;
-    margin-left: 15px;
-  }
+  position: relative;
+  color: #ffffff !important;
+  margin-left: 15px;
+  transition: color 0.3s ease;
+}
 
-  .nav-link:hover {
-    color: #0d6efd !important;
-  }
+/* Hover color */
+.nav-link:hover {
+  color: #0d6efd !important;
+}
 
+/* Animated underline */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background-color: #0d6efd;
+  transition: width 0.3s ease;
+}
+
+/* On hover, expand underline */
+.nav-link:hover::after {
+  width: 100%;
+}
 #certifications {
   scroll-margin-top: 80px;
 }
