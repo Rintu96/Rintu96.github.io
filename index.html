@@ -484,9 +484,15 @@ html {
   }
 
   .custom-navbar {
-    background: rgba(31, 45, 61, 0.9);
-    backdrop-filter: blur(10px);
-  }
+  background: rgba(31, 45, 61, 0.9);
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+/* Add shadow on scroll */
+.custom-navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
 .navbar-brand span {
   font-size: 0.85rem;
   font-weight: 500;
@@ -532,5 +538,12 @@ html {
   const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
 </script>
 
-  </body>
+  <script>
+  window.addEventListener("scroll", function() {
+    const navbar = document.querySelector(".custom-navbar");
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+  });
+</script>
+
+</body>
   </html>
